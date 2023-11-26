@@ -1,6 +1,6 @@
 # Instruções
 
-Este projeto contém um conjunto de testes escritos usando a gem `minitest` e faz uso da gem `dry-schema` para validação.
+Este projeto foi desenvolvido com `Ruby`, contém um conjunto de testes escritos usando a gem `minitest` e faz uso da gem `dry-schema` para validação.
 
 ## Instalação das Gems
 
@@ -26,10 +26,8 @@ cd cs_finder
 ```
 
 2. Execute o seguinte comando para rodar os testes:
-
 ```bash
 ruby tests/validations/schema_tests.rb
-
 ruby tests/customer_success_balancing_tests.rb
 ```
 
