@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './validations/schema'
+require './lib/validations/schema'
 
 class CustomerSuccessBalancing
 	class CustomerSuccessNotFoundError < StandardError; end

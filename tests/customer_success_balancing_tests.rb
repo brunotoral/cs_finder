@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './customer_success_balancing'
+require './lib/customer_success_balancing'
 require 'minitest/autorun'
 require 'timeout'
 
