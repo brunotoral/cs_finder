@@ -38,20 +38,20 @@ class CustomerSuccessBalancing
 
 	def top_customer_success_id
 		grouped_customers = group_and_count_customer_by_cs
-		assigned_customers_count = grouped_customers.values
+		assigned_customers_values = grouped_customers.values
 		max_cs_by_score = grouped_customers.max_by { |_id, score| score }
 
-		raise_not_found_error if invalid_response?(assigned_customers_count, grouped_customers, max_cs_by_score)
+		raise_not_found_error if invalid_response?(assigned_customers_values, grouped_customers, max_cs_by_score)
 
-		max_cs_by_score[0]
+		max_cs_by_score.first
 	end
 	
-	def invalid_response?(assigned_customers_count, grouped_customers, max_cs_by_score)
-		is_draw?(max_cs_by_score[1], assigned_customers_count) || grouped_customers.empty?
+	def invalid_response?(assigned_customers_values, grouped_customers, max_cs_by_score)
+		is_draw?(max_cs_by_score.last, assigned_customers_values) || grouped_customers.empty?
 	end
 
-	def is_draw?(id, array)
-		array.count(id) > 1
+	def is_draw?(size, values)
+		values.count(size) > 1
 	end
 
 	def group_and_count_customer_by_cs
