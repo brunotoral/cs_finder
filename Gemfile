@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'dry-schema'
-gem 'minitest'
+
+group :test do
+  gem 'minitest'
+end
