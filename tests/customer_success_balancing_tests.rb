@@ -78,24 +78,28 @@ class CustomerSuccessBalancingTests < Minitest::Test
 		assert_equal 1, balancer.execute
 	end
 
-	def test_scenario_nine
+	def test_with_invalid_customer_success
 		balancer = CustomerSuccessBalancing.new(
 			[{id: -1, score: 10}],
 			build_scores([90, 70, 20, 40, 60, 10]),
 			[2, 4]
 		)
 
-		assert_equal 0, balancer.execute
+		assert_raises Validations::Schema::SchemaError do
+			balancer.execute
+		end
 	end
 
-	def test_scenario_ten
+	def test_with_invalid_customers
 		balancer = CustomerSuccessBalancing.new(
 			build_scores([60, 40, 95, 75]),
 			[{id: -1, score: 10}],
 			[2, 4]
 		)
 
-		assert_equal 0, balancer.execute
+		assert_raises Validations::Schema::SchemaError do
+			balancer.execute
+		end
 	end
 
 	

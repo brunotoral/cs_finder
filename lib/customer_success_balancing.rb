@@ -7,7 +7,7 @@ class CustomerSuccessBalancing
 
 	include Validations::Schema
 
-	DEFAULT_ERROR_RESPONSE = 0
+	DEFAULT_RESPONSE = 0
 
 	def initialize(customer_success, customers, away_customer_success)
 		@customer_success = customer_success
@@ -20,8 +20,8 @@ class CustomerSuccessBalancing
 
 		top_customer_success_id
 	
-	rescue SchemaError, CustomerSuccessNotFoundError
-		DEFAULT_ERROR_RESPONSE
+	rescue CustomerSuccessNotFoundError
+		DEFAULT_RESPONSE
 	end
 
 	private
